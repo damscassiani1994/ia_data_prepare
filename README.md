@@ -1,97 +1,97 @@
-# Deep Learning con PyTorch — Cuadernos de Práctica
+# Deep Learning with PyTorch — Practice Notebooks
 
-Colección de notebooks de Jupyter que cubre los principales temas de Deep Learning usando PyTorch, desde fundamentos hasta modelos avanzados de visión por computadora y NLP.
+A collection of Jupyter notebooks covering the main Deep Learning topics using PyTorch, from fundamentals to advanced computer vision and NLP models.
 
 ---
 
-## Temas cubiertos
+## Topics Covered
 
-### 1. Preparación de datos y fundamentos
+### 1. Data Preparation and Fundamentals
 **`main.ipynb`**
-- Exploración y preprocesamiento de datos tabulares con Pandas
-- Codificación de variables categóricas con `OneHotEncoder` (sklearn)
-- Dataset: estadísticas de la Premier League (`premier_league_data.csv`)
+- Tabular data exploration and preprocessing with Pandas
+- Categorical variable encoding with `OneHotEncoder` (sklearn)
+- Dataset: Premier League statistics (`premier_league_data.csv`)
 
 ---
 
-### 2. Introducción a PyTorch y Tensores
+### 2. Introduction to PyTorch and Tensors
 **`torch_imagen_clasification.ipynb`**
-- Creación e inicialización de tensores
-- Operaciones básicas: `torch.tensor`, `torch.from_numpy`, `torch.ones_like`, `torch.rand`
-- Fundamentos de la API de PyTorch
+- Tensor creation and initialization
+- Basic operations: `torch.tensor`, `torch.from_numpy`, `torch.ones_like`, `torch.rand`
+- PyTorch API fundamentals
 
 ---
 
-### 3. Clasificación de imágenes con CNN personalizada
+### 3. Image Classification with a Custom CNN
 **`torch_my_image_clasification.ipynb`**
-- Pipeline completo de clasificación de imágenes con torchvision
-- Transformaciones de datos: redimensionado, recorte, flip horizontal, rotación, color jitter
-- Entrenamiento de una CNN propia con `nn.Module`
-- Modelos guardados en `models/`: clasificador de logos de la Premier League, clasificador de animales, red CIFAR-10
-- Dataset custom: logos de equipos Premier League (Arsenal, Chelsea, Liverpool, ManCity, ManUtd, Aston Villa)
+- Full image classification pipeline with torchvision
+- Data transformations: resize, center crop, horizontal flip, rotation, color jitter
+- Training a custom CNN with `nn.Module`
+- Saved models in `models/`: Premier League logo classifier, animal classifier, CIFAR-10 network
+- Custom dataset: Premier League team logos (Arsenal, Chelsea, Liverpool, ManCity, ManUtd, Aston Villa)
 
 ---
 
-### 4. NLP — Clasificador Bag of Words
+### 4. NLP — Bag of Words Classifier
 **`nlp_bag_of_words_classifier.ipynb`**
-- Clasificación de texto español/inglés con modelo BoW
-- Implementación de `BoWClassifier` con `nn.Linear` + `log_softmax`
-- Construcción manual del vocabulario y vectorización de frases
+- Spanish/English text classification with a BoW model
+- `BoWClassifier` implementation with `nn.Linear` + `log_softmax`
+- Manual vocabulary building and sentence vectorization
 
 ---
 
 ### 5. NLP — Word Embeddings
 **`nlp_word_embeddings.ipynb`**
-- Embeddings de palabras con `nn.Embedding`
-- Modelo de lenguaje N-gramas (`NGramLanguageModeler`)
-- Entrenamiento con SGD y `NLLLoss`
+- Word embeddings with `nn.Embedding`
+- N-gram language model (`NGramLanguageModeler`)
+- Training with SGD and `NLLLoss`
 
 ---
 
-### 6. NLP — Modelos de secuencia con LSTM
+### 6. NLP — Sequence Models with LSTM
 **`nlp_sequence_models_tutorial.ipynb`**
-- Introducción a LSTM con `nn.LSTM`
-- Aplicación al etiquetado gramatical (Part-of-Speech Tagging)
-- Modelo `LSTMTagger` con embeddings + LSTM + capa lineal
+- Introduction to LSTM with `nn.LSTM`
+- Application to Part-of-Speech Tagging
+- `LSTMTagger` model with embeddings + LSTM + linear layer
 
 ---
 
 ### 7. NLP — BiLSTM + Conditional Random Field (CRF)
 **`lstm_conditional_random_field_discussion.ipynb`**
-- Modelo BiLSTM-CRF para reconocimiento de entidades nombradas (NER)
-- Implementación manual del algoritmo de Viterbi y `log_sum_exp`
-- Etiquetado BIO (Begin-Inside-Outside)
+- BiLSTM-CRF model for Named Entity Recognition (NER)
+- Manual implementation of the Viterbi algorithm and `log_sum_exp`
+- BIO tagging scheme (Begin-Inside-Outside)
 
 ---
 
-### 8. Visión por computadora — Detección e instancias con Mask R-CNN
+### 8. Computer Vision — Object Detection and Instance Segmentation with Mask R-CNN
 **`mask_r_cnn_detention.ipynb`** / **`mask_r_cnn_detention.py`**
-- Detección de objetos e segmentación de instancias con Mask R-CNN
-- Fine-tuning de `maskrcnn_resnet50_fpn` preentrenado en COCO
-- Dataset: PennFudan pedestrian dataset (imágenes + máscaras)
-- Utilities de referencia en `references/detection/`: engine, COCO eval, transforms
+- Object detection and instance segmentation with Mask R-CNN
+- Fine-tuning of `maskrcnn_resnet50_fpn` pretrained on COCO
+- Dataset: PennFudan pedestrian dataset (images + masks)
+- Reference utilities in `references/detection/`: engine, COCO eval, transforms
 
 ---
 
-### 9. Fine-tuning de LLMs con LoRA (QLoRA)
+### 9. LLM Fine-tuning with LoRA (QLoRA) (PENDING)
 **`train_llm_with_pythorch.ipynb`**
-- Fine-tuning de modelos de lenguaje grandes con `SFTTrainer` (TRL)
-- Técnica de adaptación eficiente **LoRA** con `peft` (PEFT / QLoRA)
-- Modelo base: `Qwen/Qwen2.5-7B-Instruct`
-- Dataset de instrucciones: `tatsu-lab/alpaca`
-- Configuración de `TrainingArguments`: batch size, learning rate, warmup, logging
+- Fine-tuning large language models with `SFTTrainer` (TRL)
+- Efficient adaptation technique **LoRA** with `peft` (PEFT / QLoRA)
+- Base model: `Qwen/Qwen2.5-7B-Instruct`
+- Instruction dataset: `tatsu-lab/alpaca`
+- `TrainingArguments` configuration: batch size, learning rate, warmup, logging
 
 ---
 
-## Estructura del proyecto
+## Project Structure
 
 ```
 data_prepare/
 ├── data/                          # Datasets (CIFAR-10, Premier League CSV)
-├── data_test/premier_league_teams/ # Imágenes de logos para clasificación
-├── models/                        # Modelos entrenados (.pth)
-├── references/detection/          # Utilidades para detección de objetos
-├── main.ipynb                     # Preprocesamiento de datos tabulares
+├── data_test/premier_league_teams/ # Logo images for classification
+├── models/                        # Trained models (.pth)
+├── references/detection/          # Object detection utilities
+├── main.ipynb                     # Tabular data preprocessing
 ├── torch_imagen_clasification.ipynb
 ├── torch_my_image_clasification.ipynb
 ├── nlp_bag_of_words_classifier.ipynb
@@ -102,10 +102,10 @@ data_prepare/
 └── train_llm_with_pythorch.ipynb
 ```
 
-## Tecnologías
+## Technologies
 
-- **PyTorch** — framework principal de deep learning
-- **torchvision** — modelos y transformaciones para visión
-- **Transformers / TRL / PEFT** — fine-tuning de LLMs
-- **scikit-learn / Pandas** — preprocesamiento de datos tabulares
-- **Matplotlib / PIL** — visualización de imágenes
+- **PyTorch** — main deep learning framework
+- **torchvision** — models and transforms for computer vision
+- **Transformers / TRL / PEFT** — LLM fine-tuning
+- **scikit-learn / Pandas** — tabular data preprocessing
+- **Matplotlib / PIL** — image visualization
